@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reading the board · Madder</title>
+    <style>
+      :root { font-family: system-ui, sans-serif; color: #1c1c1c; background: #fafaf7; }
+      body { margin: 0; --accent: #3b4bc8; }
+      header, main, footer { max-width: 44rem; margin: 0 auto; padding: 1.25rem 1rem; }
+      header { display: flex; justify-content: space-between; align-items: center; }
+      .mark { font-weight: 700; color: var(--accent); }
+      /* Intentional, for Impeccable's test drive: link text under the 11px floor. */
+      header a.back { font-size: 10px; color: var(--accent); }
+      h1 {
+        font-size: clamp(2rem, 6vw, 3rem);
+        margin: 2rem 0 1rem;
+        /* Intentional, for Impeccable's test drive: gradient text on the heading. */
+        background: linear-gradient(90deg, #3b4bc8, #e4483f);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      /* Intentional, for Impeccable's test drive: low-contrast grey text on the background. */
+      .lede { color: #c9c9c4; font-size: 1.1rem; line-height: 1.5; }
+      .cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
+      .col { background: #fff; border: 1px solid #e5e5e0; border-radius: 0.5rem; padding: 0.9rem 1rem; }
+      .col h2 { font-size: 1rem; margin: 0 0 0.5rem; }
+      .col .count { font-size: 1.75rem; font-weight: 700; color: var(--accent); }
+      .col p { margin: 0.25rem 0 0; font-size: 0.9rem; line-height: 1.4; }
+      .bar { height: 0.5rem; background: #e5e5e0; border-radius: 0.25rem; overflow: hidden; margin-top: 0.6rem; }
+      /* Intentional, for Impeccable's test drive: transition on a layout property (width). */
+      .bar span { display: block; height: 100%; width: 30%; background: var(--accent); transition: width 0.3s; }
+      .bar:hover span { width: 100%; }
+      /* Intentional, for Impeccable's test drive: body text flush with the viewport edges, no background. */
+      .edge { margin: 2rem 0 0; padding: 0; max-width: none; width: 100vw; position: relative; left: 50%; transform: translateX(-50%); line-height: 1.5; }
+      footer { color: #55554f; font-size: 0.9rem; border-top: 1px solid #e5e5e0; }
+      @media (max-width: 36rem) { .cols { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <header>
+      <span class="mark">Madder</span>
+      <a class="back" href="/">Back to the board</a>
+    </header>
+    <main>
+      <h1>Reading the board</h1>
+      <p class="lede">The board sorts the shared list into three columns so you can see where everything stands without opening a thing.</p>
+      <div class="cols">
+        <section class="col">
+          <h2>Just added</h2>
+          <div class="count">5</div>
+          <p>The newest items, shown first.</p>
+          <div class="bar"><span></span></div>
+        </section>
+        <section class="col">
+          <h2>In progress</h2>
+          <div class="count">3</div>
+          <p>Items someone has picked up.</p>
+          <div class="bar"><span></span></div>
+        </section>
+        <section class="col">
+          <h2>Done</h2>
+          <div class="count">12</div>
+          <p>Ticked off, with a check mark.</p>
+          <div class="bar"><span></span></div>
+        </section>
+      </div>
+      <p class="edge">Madder shows the whole shared list at a glance: three columns, newest first, and a count at the top of each.</p>
+    </main>
+    <footer>Madder · everything on the shared list, at a glance</footer>
+  </body>
+</html>
